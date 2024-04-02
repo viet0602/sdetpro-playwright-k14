@@ -1,0 +1,9 @@
+{
+  "name": "sdetpro-k14-playwright",
+  "version": "1.0.0",
+  "description": "lam viet sdet pro k14 playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  }
+}
