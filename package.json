@@ -4,6 +4,10 @@
   "description": "lam viet sdet pro k14 playwright",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test --headed",
+    "ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@playwright/test": "1.42.1"
   }
 }
