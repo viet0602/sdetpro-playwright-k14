@@ -41,11 +41,55 @@ Day 18: Tổng quan playwright
 retries: process.env.CI? 2 : 0, --> fail ở CI thì run lại 2 lần, fail ở local thì ko run lại
 use
 
-CÁch lấy locator có 2 nhóm chính
+DAY 19: Playwright - Locator
+1. page.locator Vs page.$
+--> Không khuyến khích dùng page.$
+.$(selector) : fit với 1 element
+.$$(selector): fit với nhiều element
+2. Link text
+
+3. CÁch lấy locator có 2 nhóm chính
 - truyền thống: css and xpath
 - playwright support: by role, label, placeholder...
 
-1. CSS và XPATH
+4. CSS và XPATH
+- Css: Nếu class có nhiều khoảng trắng thì xoá khoảng trắng và thêm 1 dấu .
+example:
 
+5.wait
+- 30s là thời gian mặc định để tìm kiếm element và thời gian tối đa của 1 test
+--> Nếu không setup thì nó sẽ mặc định lấy giá trị này
+- implicitWait: Làm sao để setup thời gian mặc định cho all tests, add ở playwright.config.js 
+--> use: {
+    actionTimeout: 5*1000, //5s
+}
+- ExplicitWait: set thời gian chờ cụ thể cho 1 element
+--> page.waitForSelector('locator', {timeout: 10000})
 
-2.implicit way
+6. data-testid
+- một cái buildin mà playwright support page.getByTestId('directions').click();
+
+7. locate by role
+ - Có 1 list các role mà playwright support such as heading, checkbox, button...
+
+ 8. filter
+ - Là sự kết hợp locator bình thường và filter, filter có 4 loại has, hasNot, hasNotTexxt, hasText
+
+ 9. method scrollIntoViewIfNeeded()- scroll element into view
+- Nếu không hiển thị ở View port thì mới scroll
+
+ 10. Multiple matching
+ - Nếu có nhiều locator matching mà mình ko dùng filter được - ko có cách nào khác thì mình dùng .elementHandles() sau đó dùng index để tương tác
+ ex: const footerLinkEles =  await page.locator('a').elementHandles(); // trả và 1 mảng các element
+ await footerLinkEles[10].click();
+
+11. input data
+- call clear() trước khi input - .fill('text')
+- innerText(): chỉ return về các visible text
+- textContent(): return all text - hidden and visible
+
+12. gettexxt
+
+13. Cách viết test
+- Tên test không được trùng
+

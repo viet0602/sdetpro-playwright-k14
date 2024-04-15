@@ -1,4 +1,3 @@
-import { chromium, Browser, Page , BrowserContext} from "playwright";
 import { test } from "@playwright/test";
 
 test("Login test", async ({page}) => {
