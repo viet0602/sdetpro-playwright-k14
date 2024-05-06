@@ -93,3 +93,53 @@ example:
 13. Cách viết test
 - Tên test không được trùng
 
+Day20
+1. Dropdown
+- Phải nằm trong tag <select>
+- Xác định được dropdownid sau đó mới chọn option bên trong, có thể chọn bằng index, value hoặc label
+
+****COMMON***
+- Trong dự án nếu gặp các locator có chứa các con số thì rất có khẳ năng những con số này sẽ thay đổi
+exemple: <iframe id = "mce_0_ifr">
+==> select selector bắt đầu hoặc kết thúc bằng cái gì đó
+$('iframe[id^="mce"]') // bắt đầu thì đội nón
+$('iframe[id$="ifr"]') // ra đi thì tính tiền
+$('iframe[id*="ifr"]') // id có chưa ifr - ở đầu hay đuôi đều được
+************
+2. iframe
+- Phải target được iframe by using page.frameLocator('iframe_id');
+- Nếu muốn tìm kiếm element của iframe thì ko dùng pageLocator mà dùng iframeLocator
+- Muốn tương tác lại các element của page thì chỉ cần dùng page.locator();
+
+==========COMMON======
+* Nếu locator có chứa dấu '>' thì có nghĩa là đi sau nó (phải đúng level): chỉ match với level đầu tiên
+- Nếu ko có dấu > thì chỉ cần chứa nó, ko cần là level đầu tiên
+* Thời gian chờ đợi ở playwright default là 30s nếu mình không có thay đổi gì ở config
+Muốn thay đổi thời gian này thì change ở playwright.config.js > use > actionTimeout
+================
+
+3. Hover and narrowdown searching scope
+- Hover: Khi mouse hover thì element mới xuất hiện
+-> Mình có các element có trùng locator --> muốn dùng locator chung cho các element này
+- Narrowdown searching scope: Tìm một element từ một element khác để giới hạn vùng tìm kiếm (chứ không phải tìm element từ page), việc này thì mang lại những lại ích sau:
++ Có thể re-use lại được locator
++ Tạo được kỹ thuật component page, không phải page object model >> Hầu hết các model web bây giờ sẽ tạo ra các re-useable components
+
+
+
+
+******** DECORATORS*********
+- Decorators là một cách viết function mà mình có thể thêm các thuộc tính vào nó
+
+
+Day 21
+1. Alert
+- Default: Thấy alert là dismiss nếu mình ko xử lý gì
+- Phải define event (API > Page > Events) trước khi có action với alert
+- JS confirm: Có confirm/cancel button: Trước khi accept/dismiss thì get content của alert: dialog.message()
+- JS promt: Can input something inside alert
+2. Execute js trên browser - dùng method evaluate()
+- Trên browser thực hiện như thế nào thì viết y chang ở code - playwright như vậy
+ - Execute mà ko có parameter: 
+ - Execute và cần truyền parameter
+ - Execute và có giá trị trả về
