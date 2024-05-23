@@ -1,4 +1,4 @@
-import {Locator, Page} from "@playwright/test";
+import {Locator} from "@playwright/test";
 
 export default class SearchComponent {
 
@@ -7,6 +7,10 @@ export default class SearchComponent {
     private searchBoxLoc = 'input[id="small-searchterms"]';
     private searchBtnLoc = 'input[class*="search-box-button"]';
 
+    /*
+    Khi khởi tạo component thì người ta phải chỉ ra locator của component (componen ở đâu? làm sao có thể
+    tìm ra nó)
+    */
     constructor(private component: Locator) {
         this.component = component;
     }

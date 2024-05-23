@@ -2,7 +2,9 @@ import {Locator} from "@playwright/test";
 
 export default class ProductItemComponent {
 
-    public static selector = '.product-item';
+   // public static selector = '.product-item';
+    public static selector: string = ".product-item";
+    
     private productTitleLoc = '.product-title';
     private productPriceLoc = 'span[class*="actual-price"]';
 
