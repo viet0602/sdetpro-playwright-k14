@@ -2,7 +2,7 @@ import { Locator } from "@playwright/test";
 import ComputerEssentialComponent from "./ComputerEssentialComponent";
 import {selector} from "../SelectorDecorator";
 
-@selector(".CheapComputerComnponent.selector")
+@selector(".product-essential")
 export default class StandardComputerComponent extends ComputerEssentialComponent {
 
     // Là 1 component nên phải có constructor
@@ -11,11 +11,11 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
     }
     // Question
 
-    selectProcessorType(type: string): Promise<void> {
-        console.log('selectProcessorType | CheapComputerComponent');
-        return Promise.resolve(undefined);
+    async selectProcessorType(type: string): Promise<void> {
+        await this.selectCompOption(type);
     }
-    selectRAMType(type: string): Promise<void> {
-        return Promise.resolve(undefined);
+
+    async selectRAMType(type: string): Promise<void> {
+        await this.selectCompOption(type);
     }
 }

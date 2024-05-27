@@ -1,7 +1,6 @@
 import { Page } from "@playwright/test";
 import HomePage from "../../models/pages/HomePage";
 import FooterComponent from "../../models/components/global/footer/FooterComponent";
-import InformationColumnComponent from "../../models/components/global/footer/InformationColumnComponent";
 import CustomerServiceComponent from "../../models/components/global/footer/CustomerServiceComponent";
 import MyAccountComponent from "../../models/components/global/footer/MyAccountComponent";
 import FollowUsComponent from "../../models/components/global/footer/FollowUsComponent";

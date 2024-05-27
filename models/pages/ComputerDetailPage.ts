@@ -6,7 +6,7 @@ import ComputerEssentialComponent from "../components/computers/ComputerEssentia
 
 // Khi anh nhận về 1 cái khuôn là 1 component loại Tun - is a ComputerEssentialComponent thì lôi constructor
 // ra để init 1 object và trả về đúng Tun
-type ComputerComponentConstructor<Tun extends ComputerEssentialComponent> = new(component: Locator) => Tun;
+export type ComputerComponentConstructor<Tun extends ComputerEssentialComponent> = new(component: Locator) => Tun;
 
 export default class ComputerDetailsPage{
 
