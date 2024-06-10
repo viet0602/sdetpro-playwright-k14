@@ -1,5 +1,5 @@
-import { Locator } from "@playwright/test";
 import ComputerEssentialComponent from "./ComputerEssentialComponent";
+import {Locator} from "@playwright/test";
 import {selector} from "../SelectorDecorator";
 
 @selector(".product-essential")
@@ -36,4 +36,5 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
         }
         await dropdown.selectOption({index: optionIndex});
     }
+
 }

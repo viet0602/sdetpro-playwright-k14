@@ -20,9 +20,9 @@ constructor(private page: Page) {
     */
    // Boundary Generic Type
    // Lấy computerComponent,
-    computerComp<Tun extends ComputerEssentialComponent>(computerComponentClass: ComputerComponentConstructor<Tun>):Tun{
-        console.log(computerComponentClass.selectorValue)
-        return new computerComponentClass(this.page.locator("abc"));
-
-    }
+   computerComp<Tun extends ComputerEssentialComponent>(
+    computerComponentClass: ComputerComponentConstructor<Tun>
+): Tun {
+    return new computerComponentClass(this.page.locator(computerComponentClass.selectorValue));
+}
 }

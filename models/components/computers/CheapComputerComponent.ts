@@ -1,15 +1,13 @@
-import { Locator } from "@playwright/test";
 import ComputerEssentialComponent from "./ComputerEssentialComponent";
+import {Locator} from "@playwright/test";
 import {selector} from "../SelectorDecorator";
 
 @selector(".product-essential")
-export default class StandardComputerComponent extends ComputerEssentialComponent {
+export default class CheapComputerComponent extends ComputerEssentialComponent {
 
-    // Là 1 component nên phải có constructor
     constructor(component: Locator) {
         super(component);
     }
-    // Question
 
     async selectProcessorType(type: string): Promise<void> {
         await this.selectCompOption(type);
@@ -18,4 +16,5 @@ export default class StandardComputerComponent extends ComputerEssentialComponen
     async selectRAMType(type: string): Promise<void> {
         await this.selectCompOption(type);
     }
+
 }

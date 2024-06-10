@@ -1,7 +1,7 @@
-import { Locator } from "@playwright/test";
+import {Locator} from "@playwright/test";
 
 export default abstract class ComputerEssentialComponent {
-    
+
     protected component: Locator;
 
     protected constructor(component: Locator) {
